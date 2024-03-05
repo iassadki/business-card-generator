@@ -16,6 +16,8 @@
         type="number"
         bind:value={choix}
         placeholder="Choisissez un modèle"
+        min="1"
+        max="4"
     />
 
     <select bind:value={choix}>

@@ -1,43 +1,47 @@
 <script>
-  import { onMount } from 'svelte';
-  import jsPDF from 'jspdf';
+  let form;
+  let name;
+  let prenom;
+  let email;
+  let numero;
+  let adresse;
+  let profession;
+  let societe;
 
-  let divContent = '';
-
-  onMount(() => {
-    // Ne pas générer le PDF lors du montage du composant
-    // Le PDF sera généré uniquement lors du clic sur le bouton "TEST PDF"
+  $: if(form){
+    document.getElementById("carteForm").addEventListener("change", function () {
+    localStorage.setItem("name", name);
+    localStorage.setItem("prenom", prenom);
+    localStorage.setItem("email", email);
+    localStorage.setItem("numero", numero);
+    localStorage.setItem("adresse", adresse);
+    localStorage.setItem("profession", profession);
+    localStorage.setItem("societe", societe);
   });
-
-  // Fonction pour générer le PDF lors du clic sur le bouton
-  function generatePDF() {
-    const pdf = new jsPDF();
-    pdf.text(divContent, 10, 10);
-    pdf.save('document.pdf');
   }
 
-  // Fonction pour obtenir le contenu de la div
-  function getDivContent() {
-    divContent = document.getElementById('card').innerText;
-    generatePDF(); // Appel à la fonction de génération du PDF après avoir obtenu le contenu de la div
-  }
+ 
 </script>
 
-<div id="content">
-  <h1>Contenu de mon document PDF</h1>
-  <p>Ceci est un exemple de contenu à inclure dans le PDF.</p>
-</div>
+<form bind:this={form} id="carteForm">
+  <label for="nom">Nom:</label>
+  <input type="text" bind:value={name} id="nom" name="nom" required >
 
-<div class="card">
-    <div class="card-header">
-        <p>logo</p>
-        <h2>name</h2>
-    </div>
-    <div class="card-body">
-        <p>adress</p>
-        <p>job</p>
-        <p>phone</p>
-    </div>
-</div>
+  <label for="prenom">Prénom:</label>
+  <input type="text" bind:value={prenom} id="prenom" name="prenom" required>
 
-<button on:click={getDivContent}>TEST PDF</button>
+  <label for="email">Email:</label>
+  <input type="email" bind:value={email} id="email" name="email" required>
+
+  <label for="numero">Numero:</label>
+  <input type="text" bind:value={numero} id="numero" name="numero" required>
+
+  <label for="adresse">Adresse:</label>
+  <input type="text" bind:value={adresse} id="adresse" name="adresse" required>
+
+  <label for="profession">Profession:</label>
+  <input type="text" bind:value={profession} id="profession" name="profession" required>
+
+  <label for="societe">Société:</label>
+  <input type="text" bind:value={societe} id="societe" name="societe" required>
+</form>

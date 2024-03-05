@@ -1,57 +1,70 @@
 <script>
-    export let civility = "";
-    export let company = "Company";
-    export let firstname = "Firstname";
-    export let name = "Name";
-    export let email = "Email";
-    export let adress = "Adress";
-    export let job = "Job";
-    export let phone = "Phone";
 
-    import { onMount } from "svelte";
-    import jsPDF from "jspdf";
+  let form;
+  let civility = localStorage.getItem("civility") ? localStorage.getItem("civility") : "Civility";
+  let name = localStorage.getItem("name") ? localStorage.getItem("name") : "Name";
+  let prenom = localStorage.getItem("prenom") ? localStorage.getItem("prenom") : "Firstname";
+  let email = localStorage.getItem("email")  ? localStorage.getItem("email") : "Email";
+  let numero = localStorage.getItem("numero") ? localStorage.getItem("numero") : "Phone";
+  let adresse = localStorage.getItem("adresse") ? localStorage.getItem("adresse") : "Adress";
+  let profession = localStorage.getItem("profession") ? localStorage.getItem("profession") : "Job";
+  let company = localStorage.getItem("societe") ? localStorage.getItem("societe") : "Company";
+
+  $: if(form){
+    document.getElementById("carteForm").addEventListener("change", function () {
+    localStorage.setItem("name", name);
+    localStorage.setItem("prenom", prenom);
+    localStorage.setItem("email", email);
+    localStorage.setItem("numero", numero);
+    localStorage.setItem("adresse", adresse);
+    localStorage.setItem("profession", profession);
+    localStorage.setItem("societe", company);
+  })
+};
+
     import html2pdf from "html2pdf.js";
+    import Test from "../../form/test.svelte";
 
     let divContent = "";
 
-    onMount(() => {
-        // Ne pas générer le PDF lors du montage du composant
-        // Le PDF sera généré uniquement lors du clic sur le bouton "Générer CARTE"
-    });
+    // onMount(() => {
+    //     // Ne pas générer le PDF lors du montage du composant
+    //     // Le PDF sera généré uniquement lors du clic sur le bouton "Générer CARTE"
+    // });
 
-    // Recuperer le texte de la div
-    function getDivContent1() {
-        divContent = document.getElementById("card").innerText;
-    }
+    // // Recuperer le texte de la div
+    // function getDivContent1() {
+    //     divContent = document.getElementById("card").innerText;
+    // }
 
-    function generatePDF1() {
-        getDivContent1();
-        const pdf = new jsPDF();
-        pdf.text(divContent, 10, 10);
-        pdf.save("document.pdf");
-    }
+    // function generatePDF1() {
+    //     getDivContent1();
+    //     const pdf = new jsPDF();
+    //     pdf.text(divContent, 10, 10);
+    //     pdf.save("document.pdf");
+    // }
 
-    // Recuperer le contenu de la div avec les styles
-    function getDivContent2() {
-        const card = document.getElementById("card");
-        const styles = window.getComputedStyle(card);
+    // // Recuperer le contenu de la div avec les styles
+    // function getDivContent2() {
+    //     const card = document.getElementById("card");
+    //     const styles = window.getComputedStyle(card);
 
-        const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = divContent;
-        tempDiv.style.cssText = styles.cssText;
+    //     const tempDiv = document.createElement("div");
+    //     tempDiv.innerHTML = divContent;
+    //     tempDiv.style.cssText = styles.cssText;
 
-        divContent = tempDiv.outerHTML;
-    }
+    //     divContent = tempDiv.outerHTML;
+    // }
 
-    function generatePDF2() {
-        getDivContent2();
-        const pdf = new jsPDF();
-        pdf.html(divContent, {
-            callback: function (pdf) {
-                pdf.save("document.pdf");
-            },
-        });
-    }
+    // function generatePDF2() {
+    //     getDivContent2();
+    //     const pdf = new jsPDF();
+    //     pdf.html(divContent, {
+    //         callback: function (pdf) {
+    //             pdf.save("document.pdf");
+    //         },
+    //     });
+    // }
 
     // html to pdf function
     function generatePDF3() {
@@ -78,41 +91,65 @@
 <div id="cards">
     <div class="card-front" id="card-front">
         <div class="card-header">
-            <p id="company" contenteditable="true">{company}</p>
+            <p id="company">{company}</p>
             <h2 id="civility" contenteditable="true">{civility}</h2>
-            <h2 id="firstname" contenteditable="true">{firstname}</h2>
+            <h2 id="firstname" contenteditable="true">{prenom}</h2>
             <h2 id="name" contenteditable="true">{name}</h2>
         </div>
         <div class="card-body">
             <p id="job" contenteditable="true">
                 <i class="fas fa-briefcase"></i>
-                {job}
+                {profession}
             </p>
             <p id="email" contenteditable="true">
                 <i class="fas fa-envelope"></i>
                 {email}
             </p>
-            <p id="adress" contenteditable="true">
+            <p id="adress">
                 <i class="fas fa-map-marker-alt"></i>
-                {adress}
+                {adresse}
             </p>
-            <p id="phone" contenteditable="true">
+            <p id="phone">
                 <i class="fas fa-phone"></i>
-                {phone}
+                {numero}
             </p>
         </div>
     </div>
     <div class="card-back" id="card-back">
         <div class="card-header">
-            <p id="company" contenteditable="true">{company}</p>
+            <p id="company">{company}</p>
         </div>
     </div>
 </div>
 
+<form bind:this={form} id="carteForm">
+    <label for="nom">Nom:</label>
+    <input type="text" bind:value={name} id="nom" name="nom" required >
+  
+    <label for="prenom">Prénom:</label>
+    <input type="text" bind:value={prenom} id="prenom" name="prenom" required>
+  
+    <label for="email">Email:</label>
+    <input type="email" bind:value={email} id="email" name="email" required>
+  
+    <label for="numero">Numero:</label>
+    <input type="text" bind:value={numero} id="numero" name="numero" required>
+  
+    <label for="adresse">Adresse:</label>
+    <input type="text" bind:value={adresse} id="adresse" name="adresse" required>
+  
+    <label for="profession">Profession:</label>
+    <input type="text" bind:value={profession} id="profession" name="profession" required>
+  
+    <label for="societe">Société:</label>
+    <input type="text" bind:value={company} id="societe" name="societe" required>
+</form>
+
+
+
 <button type="submit" class="btn btn-primary" on:click={generatePDF3}
     >Générer CARTE</button
 >
-
 <style>
     /* Avant de la carte */
     .card-front {
