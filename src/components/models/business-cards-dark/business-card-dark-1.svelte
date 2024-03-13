@@ -1,70 +1,46 @@
 <script>
+    let form;
+    let civility = localStorage.getItem("civility")
+        ? localStorage.getItem("civility")
+        : "Civility";
+    let name = localStorage.getItem("name")
+        ? localStorage.getItem("name")
+        : "Name";
+    let firstname = localStorage.getItem("firstname")
+        ? localStorage.getItem("firstname")
+        : "Firstname";
+    let email = localStorage.getItem("email")
+        ? localStorage.getItem("email")
+        : "Email";
+    let phone = localStorage.getItem("phone")
+        ? localStorage.getItem("phone")
+        : "Phone";
+    let adress = localStorage.getItem("adress")
+        ? localStorage.getItem("adress")
+        : "Adress";
+    let job = localStorage.getItem("job") ? localStorage.getItem("job") : "Job";
+    let company = localStorage.getItem("societe")
+        ? localStorage.getItem("societe")
+        : "Company";
 
-  let form;
-  let civility = localStorage.getItem("civility") ? localStorage.getItem("civility") : "Civility";
-  let name = localStorage.getItem("name") ? localStorage.getItem("name") : "Name";
-  let prenom = localStorage.getItem("prenom") ? localStorage.getItem("prenom") : "Firstname";
-  let email = localStorage.getItem("email")  ? localStorage.getItem("email") : "Email";
-  let numero = localStorage.getItem("numero") ? localStorage.getItem("numero") : "Phone";
-  let adresse = localStorage.getItem("adresse") ? localStorage.getItem("adresse") : "Adress";
-  let profession = localStorage.getItem("profession") ? localStorage.getItem("profession") : "Job";
-  let company = localStorage.getItem("societe") ? localStorage.getItem("societe") : "Company";
-
-  $: if(form){
-    document.getElementById("carteForm").addEventListener("change", function () {
-    localStorage.setItem("name", name);
-    localStorage.setItem("prenom", prenom);
-    localStorage.setItem("email", email);
-    localStorage.setItem("numero", numero);
-    localStorage.setItem("adresse", adresse);
-    localStorage.setItem("profession", profession);
-    localStorage.setItem("societe", company);
-  })
-};
+    $: if (form) {
+        document
+            .getElementById("carteForm")
+            .addEventListener("change", function () {
+                localStorage.setItem("name", name);
+                localStorage.setItem("firstname", firstname);
+                localStorage.setItem("email", email);
+                localStorage.setItem("phone", phone);
+                localStorage.setItem("adress", adress);
+                localStorage.setItem("job", job);
+                localStorage.setItem("societe", company);
+            });
+    }
 
     import html2pdf from "html2pdf.js";
     import Test from "../../form/test.svelte";
 
     let divContent = "";
-
-    // onMount(() => {
-    //     // Ne pas générer le PDF lors du montage du composant
-    //     // Le PDF sera généré uniquement lors du clic sur le bouton "Générer CARTE"
-    // });
-
-    // // Recuperer le texte de la div
-    // function getDivContent1() {
-    //     divContent = document.getElementById("card").innerText;
-    // }
-
-    // function generatePDF1() {
-    //     getDivContent1();
-    //     const pdf = new jsPDF();
-    //     pdf.text(divContent, 10, 10);
-    //     pdf.save("document.pdf");
-    // }
-
-    // // Recuperer le contenu de la div avec les styles
-    // function getDivContent2() {
-    //     const card = document.getElementById("card");
-    //     const styles = window.getComputedStyle(card);
-
-    //     const tempDiv = document.createElement("div");
-    //     tempDiv.innerHTML = divContent;
-    //     tempDiv.style.cssText = styles.cssText;
-
-    //     divContent = tempDiv.outerHTML;
-    // }
-
-    // function generatePDF2() {
-    //     getDivContent2();
-    //     const pdf = new jsPDF();
-    //     pdf.html(divContent, {
-    //         callback: function (pdf) {
-    //             pdf.save("document.pdf");
-    //         },
-    //     });
-    // }
 
     // html to pdf function
     function generatePDF3() {
@@ -91,67 +67,108 @@
 <div id="cards">
     <div class="card-front" id="card-front">
         <div class="card-header">
-            <p id="company">{company}</p>
+            <p id="company" contenteditable="true">{company}</p>
             <h2 id="civility" contenteditable="true">{civility}</h2>
-            <h2 id="firstname" contenteditable="true">{prenom}</h2>
+            <h2 id="firstname" contenteditable="true">{firstname}</h2>
             <h2 id="name" contenteditable="true">{name}</h2>
         </div>
         <div class="card-body">
-            <p id="job" contenteditable="true">
-                <i class="fas fa-briefcase"></i>
-                {profession}
-            </p>
-            <p id="email" contenteditable="true">
-                <i class="fas fa-envelope"></i>
-                {email}
-            </p>
-            <p id="adress">
-                <i class="fas fa-map-marker-alt"></i>
-                {adresse}
-            </p>
-            <p id="phone">
-                <i class="fas fa-phone"></i>
-                {numero}
-            </p>
+            <div class="informations">
+                <img alt="job" src="./src/assets/dark/case.png" />
+                <p id="job" contenteditable="true">
+                    {job}
+                </p>
+            </div>
+            <div class="informations">
+                <img alt="email" src="./src/assets/dark/enveloppe.png" />
+                <p id="email" contenteditable="true">
+                    {email}
+                </p>
+            </div>
+
+            <div class="informations">
+                <img alt="adress" src="./src/assets/dark/location.png" />
+                <p id="adress" contenteditable="true">
+                    {adress}
+                </p>
+            </div>
+
+            <div class="informations">
+                <img alt="phone" src="./src/assets/dark/telephone.png" />
+                <p id="phone" contenteditable="true">
+                    {phone}
+                </p>
+            </div>
         </div>
     </div>
     <div class="card-back" id="card-back">
         <div class="card-header">
-            <p id="company">{company}</p>
+            <p id="company" contenteditable="true">{company}</p>
         </div>
     </div>
 </div>
 
 <form bind:this={form} id="carteForm">
     <label for="nom">Nom:</label>
-    <input type="text" bind:value={name} id="nom" name="nom" required >
-  
-    <label for="prenom">Prénom:</label>
-    <input type="text" bind:value={prenom} id="prenom" name="prenom" required>
-  
+    <input type="text" bind:value={name} id="nom" name="nom" required />
+
+    <label for="firstname">Prénom:</label>
+    <input
+        type="text"
+        bind:value={firstname}
+        id="firstname"
+        name="firstname"
+        required
+    />
+
     <label for="email">Email:</label>
-    <input type="email" bind:value={email} id="email" name="email" required>
-  
-    <label for="numero">Numero:</label>
-    <input type="text" bind:value={numero} id="numero" name="numero" required>
-  
-    <label for="adresse">Adresse:</label>
-    <input type="text" bind:value={adresse} id="adresse" name="adresse" required>
-  
-    <label for="profession">Profession:</label>
-    <input type="text" bind:value={profession} id="profession" name="profession" required>
-  
+    <input type="email" bind:value={email} id="email" name="email" required />
+
+    <label for="phone">phone:</label>
+    <input type="text" bind:value={phone} id="phone" name="phone" required />
+
+    <label for="adress">adress:</label>
+    <input type="text" bind:value={adress} id="adress" name="adress" required />
+
+    <label for="job">job:</label>
+    <input type="text" bind:value={job} id="job" name="job" required />
+
     <label for="societe">Société:</label>
-    <input type="text" bind:value={company} id="societe" name="societe" required>
+    <input
+        type="text"
+        bind:value={company}
+        id="societe"
+        name="societe"
+        required
+    />
 </form>
-
-
 
 <button type="submit" class="btn btn-primary" on:click={generatePDF3}
     >Générer CARTE</button
 >
+
 <style>
-    /* Avant de la carte */
+    /* Card Front */
+    .card-front .card-header {
+        /* display: flex; */
+        position: absolute;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .card-front #company {
+        /* position: absolute; */
+        align-items: center;
+        /* margin: 10px 10px 10px 220px; */
+    }
+
+    .card-front .card-header h2 {
+        font-size: 20px;
+        display: flex;
+        margin-left: 70px;
+        /* margin-right: 100px; */
+    }
+
     .card-front {
         background-color: #000;
         border-radius: 5px;
@@ -161,12 +178,8 @@
         width: 500px;
         height: 300px;
     }
-    .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .card-body {
+
+    .card-front .card-body {
         padding: 1em;
         display: flex;
         align-items: flex-start;
@@ -174,14 +187,26 @@
         align-content: center;
         justify-content: center;
         flex-wrap: wrap;
-    }
-    .card-body p {
-        margin: 10px;
-        /* faire en sorte que ça soit aligné */
-        /* margin-left: 30px; */
+        margin-top: 30px;
     }
 
-    /* Arriere de la carte */
+    .card-front .informations {
+        display: flex;
+        align-items: center;
+        margin-left: 200px;
+    }
+
+    .card-front .informations img {
+        width: 20px;
+        height: 20px;
+        margin: 10px 10px 10px 10px;
+    }
+
+    .card-front .informations p {
+        margin: 5px 10px 8px 10px;
+    }
+
+    /* Card Back */
     .card-back {
         background-color: #000;
         border-radius: 5px;
@@ -191,7 +216,7 @@
         width: 500px;
         height: 300px;
     }
-    /* mettre le company au milieu de la carte */
+
     .card-back .card-header {
         display: flex;
         justify-content: center;
