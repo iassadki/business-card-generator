@@ -89,6 +89,6 @@
         />
     </div>
     <button type="submit" class="btn btn-primary" on:click={generatePDF}
-        >Générer CARTE</button
+        >Generate Card</button
     >
 </form> -->

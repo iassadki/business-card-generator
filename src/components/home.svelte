@@ -8,23 +8,23 @@
 </script>
 
 <div class="card">
-    <h1>Bienvenue sur visit-card-generator</h1>
+    <h1>Welcome in Business Card Generator</h1>
 
-    <p>Veuillez choisir un modèle</p>
+    <p>Choose a model</p>
 
     <input
         type="number"
         bind:value={choix}
-        placeholder="Choisissez un modèle"
+        placeholder="Choose a model"
         min="1"
         max="4"
     />
 
     <select bind:value={choix}>
-        <option value={1}>BusinessCardDark1</option>
-        <option value={2}>BusinessCardDark2</option>
-        <option value={3}>BusinessCardLight1</option>
-        <option value={4}>BusinessCardLight2</option>
+        <option value={1}>Business Card Dark 1</option>
+        <option value={2}>Business Card Dark 2</option>
+        <option value={3}>Business Card Light 1</option>
+        <option value={4}>Business Card Light 2</option>
     </select>
 
     {#if choix === 1}
