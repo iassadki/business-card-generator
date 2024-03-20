@@ -184,12 +184,14 @@
 
     .card-front #company {
         align-items: center;
+        margin-left: 200px;
     }
 
     .card-front .card-header h2 {
         font-size: 20px;
         display: flex;
         margin-left: 70px;
+        margin-top: 30px;
     }
 
     .card-front {
@@ -210,7 +212,7 @@
         align-content: center;
         justify-content: center;
         flex-wrap: wrap;
-        margin-top: 30px;
+        margin-top: 80px;
     }
 
     .card-front .informations {
