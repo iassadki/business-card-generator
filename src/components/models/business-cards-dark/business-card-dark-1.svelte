@@ -68,35 +68,35 @@
     <div id="cards">
         <div class="card-front" id="card-front">
             <div class="card-header">
-                <p id="company" contenteditable="true">{company}</p>
-                <h2 id="civility" contenteditable="true">{civility}</h2>
-                <h2 id="firstname" contenteditable="true">{firstname}</h2>
-                <h2 id="name" contenteditable="true">{name}</h2>
+                <p id="company">{company}</p>
+                <h2 id="civility">{civility}</h2>
+                <h2 id="firstname">{firstname}</h2>
+                <h2 id="name">{name}</h2>
             </div>
             <div class="card-body">
                 <div class="informations">
                     <img alt="job" src="./src/assets/dark/case.png" />
-                    <p id="job" contenteditable="true">
+                    <p id="job">
                         {job}
                     </p>
                 </div>
                 <div class="informations">
                     <img alt="email" src="./src/assets/dark/enveloppe.png" />
-                    <p id="email" contenteditable="true">
+                    <p id="email">
                         {email}
                     </p>
                 </div>
 
                 <div class="informations">
                     <img alt="adress" src="./src/assets/dark/location.png" />
-                    <p id="adress" contenteditable="true">
+                    <p id="adress">
                         {adress}
                     </p>
                 </div>
 
                 <div class="informations">
                     <img alt="phone" src="./src/assets/dark/telephone.png" />
-                    <p id="phone" contenteditable="true">
+                    <p id="phone">
                         {phone}
                     </p>
                 </div>
@@ -104,7 +104,7 @@
         </div>
         <div class="card-back" id="card-back">
             <div class="card-header">
-                <p id="company" contenteditable="true">{company}</p>
+                <p id="company">{company}</p>
             </div>
         </div>
     </div>
@@ -118,6 +118,7 @@
                 id="name"
                 name="name"
                 required
+                maxlength="20"
             />
 
             <label for="firstname">Firstname</label>
@@ -127,6 +128,7 @@
                 id="firstname"
                 name="firstname"
                 required
+                maxlength="20"
             />
 
             <label for="email">Email</label>
@@ -136,6 +138,7 @@
                 id="email"
                 name="email"
                 required
+                maxlength="30"
             />
 
             <label for="phone">Phone</label>
@@ -145,6 +148,7 @@
                 id="phone"
                 name="phone"
                 required
+                maxlength="14"
             />
 
             <label for="adress">Adress</label>
@@ -166,6 +170,7 @@
                 id="company"
                 name="company"
                 required
+                maxlength="16"
             />
         </form>
 
@@ -185,17 +190,20 @@
     .card-front #company {
         align-items: center;
         margin-left: 200px;
+        justify-content: center;
+        margin-left: 20px;
     }
 
     .card-front .card-header h2 {
-        font-size: 20px;
+        font-size: 13px;
         display: flex;
-        margin-left: 70px;
+        margin-left: 20px;
         margin-top: 30px;
     }
 
     .card-front {
         background-color: #000;
+        font-size: 15px;
         border-radius: 5px;
         color: #fff;
         padding: 1em;
@@ -213,12 +221,14 @@
         justify-content: center;
         flex-wrap: wrap;
         margin-top: 80px;
+        /*  */
     }
 
     .card-front .informations {
         display: flex;
         align-items: center;
         margin-left: 200px;
+        
     }
 
     .card-front .informations img {
@@ -253,11 +263,11 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        margin-bottom: 30px; 
+        margin-bottom: 30px;
     }
 
     #cards {
-        width: 500px; 
+        width: 500px;
     }
 
     #carteForm label,
@@ -273,10 +283,10 @@
     }
 
     .form-container {
-        width: 500px; 
+        width: 500px;
         padding: 20px;
-        background-color: #808080; 
-        border: solid 2px #000; 
+        background-color: #808080;
+        border: solid 2px #000;
         border-radius: 30px;
         margin-top: 15px;
         margin-left: 100px;
