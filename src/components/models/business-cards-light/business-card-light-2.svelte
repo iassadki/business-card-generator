@@ -43,7 +43,7 @@
     let divContent = "";
 
     // html to pdf function
-    function generatePDF3() {
+    function generatePDF() {
         let cards = document.getElementById("cards");
 
         let opt = {
@@ -172,7 +172,7 @@
             />
         </form>
 
-        <button type="submit" class="btn btn-primary" on:click={generatePDF3}
+        <button type="submit" class="btn btn-primary" on:click={generatePDF}
             >Generate Card</button
         >
     </div>
