@@ -202,11 +202,6 @@
     }
 
     .card-front .card-body {
-        /* padding: 1em; */
-        /* display: flex; */
-        /* align-items: flex-start; */
-        /* flex-direction: column; */
-        /* justify-content: center; */
         align-content: center;
         flex-wrap: wrap;
         margin-left: 60px;
