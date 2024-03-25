@@ -239,9 +239,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 50px 0;
-        font-size: 50px;
+        text-align: center;
+        font-size: 30px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
+
 
     .container {
         display: flex;

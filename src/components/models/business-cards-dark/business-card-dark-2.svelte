@@ -235,14 +235,6 @@
         border: solid 2px #000;
     }
 
-    /* .card-back #company {
-        width: 100%;
-        margin: 0 auto !important;
-        text-align: center;
-        align-items: center;
-
-    } */
-
     .card-back .card-header {
         display: flex;
         justify-content: center;
