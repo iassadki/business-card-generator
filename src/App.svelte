@@ -1,7 +1,5 @@
 <script>
-  import HomeCard from "./components/home.svelte";
-  
-  let choix = 0; 
+  import HomeCard from "./components/home.svelte"; 
 </script>
 
 <main>

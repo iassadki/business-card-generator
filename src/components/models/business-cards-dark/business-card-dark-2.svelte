@@ -37,10 +37,7 @@
             });
     }
 
-    import html2pdf from "html2pdf.js";
-    import Test from "../../form/test.svelte";
-
-    let divContent = "";
+    import html2pdf from "html2pdf.js";   
 
     // html to pdf function
     function generatePDF() {

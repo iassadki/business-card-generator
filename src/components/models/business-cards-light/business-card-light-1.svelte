@@ -38,10 +38,7 @@
     }
 
     import html2pdf from "html2pdf.js";
-    import Test from "../../form/test.svelte";
-
-    let divContent = "";
-
+    
     // html to pdf function
     function generatePDF() {
         let cards = document.getElementById("cards");
