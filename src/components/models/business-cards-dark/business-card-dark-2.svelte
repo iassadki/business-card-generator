@@ -221,6 +221,7 @@
 
     .card-front {
         background-color: #000;
+        font-size: 15px;
         border-radius: 5px;
         color: #fff;
         padding: 1em;

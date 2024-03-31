@@ -221,6 +221,7 @@
         margin: 1em;
         width: 500px;
         height: 300px;
+        border: solid 2px #000;
     }
 
     .card-front .card-body {
@@ -258,6 +259,7 @@
         margin: 1em;
         width: 500px;
         height: 300px;
+        border: solid 2px #000;
     }
 
     .card-back .card-header {
