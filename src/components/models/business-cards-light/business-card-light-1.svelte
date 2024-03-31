@@ -27,6 +27,7 @@
         document
             .getElementById("carteForm")
             .addEventListener("change", function () {
+                localStorage.setItem("civility", civility);
                 localStorage.setItem("name", name);
                 localStorage.setItem("firstname", firstname);
                 localStorage.setItem("email", email);
@@ -38,7 +39,7 @@
     }
 
     import html2pdf from "html2pdf.js";
-    
+
     // html to pdf function
     function generatePDF() {
         let cards = document.getElementById("cards");
@@ -108,6 +109,19 @@
 
     <div class="form-container">
         <form bind:this={form} id="carteForm">
+            <label for="civility">Civility</label>
+            <select
+                bind:value={civility}
+                id="civility"
+                name="civility"
+                required
+            >
+                <option value="Mr">Mr</option>
+                <option value="Mme">Mme</option>
+                <option value="Me">Me</option>
+                <option value="Dr">Dr</option>
+            </select>
+
             <label for="name">Name</label>
             <input
                 type="text"
@@ -158,7 +172,14 @@
             />
 
             <label for="job">Job</label>
-            <input type="text" bind:value={job} id="job" name="job" required maxlength="30" />
+            <input
+                type="text"
+                bind:value={job}
+                id="job"
+                name="job"
+                required
+                maxlength="30"
+            />
 
             <label for="company">Company</label>
             <input
@@ -259,7 +280,6 @@
         margin: 0 auto;
     }
 
-
     .container {
         display: flex;
         justify-content: space-between;
@@ -281,6 +301,12 @@
     #carteForm input[type="email"] {
         width: 95%;
         padding: 10px;
+    }
+
+    #carteForm #civility {
+        width: 99%;
+        padding: 10px;
+        margin-bottom: 10px;
     }
 
     .form-container {
