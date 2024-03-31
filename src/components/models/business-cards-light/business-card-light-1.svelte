@@ -212,6 +212,11 @@
         margin-left: 20px;
     }
 
+    .card-front #adress {
+        text-align: left;
+        margin-left: 20px;
+    }
+
     .card-front .card-header h2 {
         font-size: 13px;
         display: flex;
