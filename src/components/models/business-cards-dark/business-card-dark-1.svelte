@@ -129,7 +129,7 @@
                 id="name"
                 name="name"
                 required
-                maxlength="20"
+                maxlength="25"
             />
 
             <label for="firstname">Firstname</label>
@@ -139,7 +139,7 @@
                 id="firstname"
                 name="firstname"
                 required
-                maxlength="20"
+                maxlength="25"
             />
 
             <label for="email">Email</label>
@@ -172,7 +172,14 @@
             />
 
             <label for="job">Job</label>
-            <input type="text" bind:value={job} id="job" name="job" required />
+            <input
+                type="text"
+                bind:value={job}
+                id="job"
+                name="job"
+                required
+                maxlength="35"
+            />
 
             <label for="company">Company</label>
             <input
@@ -181,7 +188,7 @@
                 id="company"
                 name="company"
                 required
-                maxlength="16"
+                maxlength="30"
             />
         </form>
 
@@ -206,6 +213,11 @@
     }
 
     .card-front #adress {
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .card-front #job {
         text-align: left;
         margin-left: 20px;
     }
