@@ -1,10 +1,11 @@
 # business-card-generator
   
 ## 💻 About the project
-Website where you can choose and modify a dark and light business card. Project done in a group of 3 people.
+Website where you can choose and modify a dark and light business card, and generate it. Project done in a group of 3 people.
 
 ## ⚙️ Functionalities
 - Choose and modify a business card
+- Generate the business card
 
 ## 🛠 Technologies
 - Languages : `JavaScript`, `HTML`, `CSS`
