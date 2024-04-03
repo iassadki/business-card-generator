@@ -46,7 +46,7 @@
 
         let opt = {
             margin: 1,
-            filename: "business-card-dark-2.pdf",
+            filename: "business-card.pdf",
             image: { type: "jpeg", quality: 0.98 },
             html2canvas: { scale: 2 },
             jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
@@ -226,7 +226,7 @@
         color: #fff;
         padding: 1em;
         margin: 1em;
-        width: 500px;
+        width: 502px;
         height: 300px;
         border: solid 2px #000;
     }
