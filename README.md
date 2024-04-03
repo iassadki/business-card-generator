@@ -1,6 +1,6 @@
 # business-card-generator
 
-![business-card-generator](https://www.github.com/iassadki/business-card-generator/assets/readme_img.png)
+![business-card-generator](https://www.github.com/iassadki/business-card-generator/src/assets/readme_img.png)
   
 ## 💻 About the project
 Website where you can choose and modify a dark and light business card. Project done in a group of 3 people.
