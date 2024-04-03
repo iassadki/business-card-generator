@@ -11,9 +11,11 @@ Website where you can choose and modify a dark and light business card. Project 
 - Framework : `Svelte`
 
 ### 🧭 Running the application
+1. Install the dependencies
 ```shell
 npm install
 ```
+2. Run the application
 ```shell
 npm run dev
 ```
