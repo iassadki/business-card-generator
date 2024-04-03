@@ -1,4 +1,6 @@
 # business-card-generator
+
+![business-card-generator](https://www.github.com/iassadki/business-card-generator/assets/readme_img.png)
   
 ## 💻 About the project
 Website where you can choose and modify a dark and light business card. Project done in a group of 3 people.
@@ -22,9 +24,6 @@ npm run dev
 
 <!-- ## 🌐 Website -->
 <!-- **[Link](https://www.link.com)** -->
-
-<!-- ## 💻 Screens/Demo -->
-<!-- ![Link](https://www.link.png)** -->
 
 ## 👤 Authors
 - [@iassadki](https://github.com/iassadki)
