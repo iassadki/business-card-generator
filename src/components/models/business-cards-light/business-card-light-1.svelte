@@ -214,12 +214,10 @@
 
     .card-front #adress {
         text-align: left;
-        margin-left: 20px;
     }
 
     .card-front #job {
         text-align: left;
-        margin-left: 20px;
     }
 
     .card-front .card-header h2 {
